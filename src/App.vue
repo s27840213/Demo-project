@@ -1,32 +1,79 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+  div(id="app")
+    div(class="container")
+      router-link(v-for="(book,index) in bookList"
+        :key="`book-${index}`"
+        :to="`/books/${book.id}`"
+        tag="div" class="book-card"
+        :style="{'background-color': selected == book.id ? 'red' : 'transparent'}")
+        img(class="book-card__img" :src="book.image")
+        span(class="book-card__name") {{book.name}}
+    router-view.
 </template>
+
+<script>
+
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  data () {
+    return {
+      selected: null
+    }
+  },
+  created () {
+    this.getBookList()
+  },
+  computed: {
+    ...mapGetters({
+      bookList: 'getBooks'
+    })
+  },
+  watch: {
+    $route () {
+      this.selected = this.$route.params.bookId
+    }
+  },
+  methods: {
+    ...mapActions({
+      getBookList: 'getBookList'
+    })
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  padding: 40px
+    clamp(20px, calc((100vw - 1200px) / 2), calc((100vw - 1200px) / 2));
+  box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  border: 1px solid #dadada;
+  padding: 10px;
+  width: 100%;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.book-card {
+  width: 300px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid #dadada;
+  box-sizing: border-box;
+  padding: 10px;
+  &__img {
+    width: 100%;
   }
 }
 </style>
