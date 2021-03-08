@@ -25,11 +25,6 @@ export default new Vuex.Store({
     async getBookList ({ commit }) {
       const { data } = await apis.getBookList()
       commit('SET_Books', data)
-    },
-    async patchBookDetail ({ commit }, { id, price, count }) {
-      const { data } = await apis.patchBookDetail(id, { price, count })
-      console.log(data)
-      // commit('UPDATE_BOOK', data, index)
     }
   },
   modules: {

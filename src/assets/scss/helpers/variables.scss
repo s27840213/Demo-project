@@ -1,47 +1,16 @@
 $colors: (
-  primary: #2d112b,
-  secondary: #602b41,
-  brown: #602b41,
-  red: #7e0032,
-  white: #fff,
-  black: #0e0314,
-  text-color: #fedcc8,
-  text-color-light: #fedcc8,
-);
-
-$colors-ky: (
-  brown: #957381,
-  brown-light: #e9d6c5,
-  bg: #f9f3e7,
-  text-content: #df9a73,
-  orange: #ffd793,
+  primary: #48426d,
+  secondary: #312c51,
+  yellow: #f0c38e,
+  orange: #f1aa9b,
+  white: #edf2f4,
 );
 
 $shadow: (
-  purple: 0 0 8px #b06ab3,
+  yellow: 0 2px 8px #f0c38e,
 );
 
-$linear-gradient: (
-  primary: linear-gradient(90deg, #0a1b29 30%, #2d6585 100%),
-);
-
-$zindex: (
-  "default-1",
-  "default-2",
-  "moon",
-  "layer7",
-  "layer6",
-  "layer5",
-  "layer4",
-  "layer3",
-  "layer2",
-  "layer1",
-  "avatar",
-  "paragraph",
-  "nav-menu",
-  "navbar",
-  "loading"
-);
+$zindex: ();
 
 $breakpoints: (
   pc: 768px,
