@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import BookList from '../views/BookList.vue'
 
 Vue.use(VueRouter)
 
@@ -11,8 +10,7 @@ const routes = [
   },
   {
     path: '/books',
-    name: 'BookList',
-    component: BookList
+    name: 'BookList'
   },
   {
     path: '/books/:bookId',
