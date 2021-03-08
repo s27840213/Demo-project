@@ -32,7 +32,7 @@ class TouchHandler {
   unregisterTouchListener () {
     // console.log('Unregister')
     this.touchZone.removeEventListener('touchstart', this.startHandler)
-    this.touchZone.removeEventListener('touchstart', this.endHandler)
+    this.touchZone.removeEventListener('touchend', this.endHandler)
   }
 
   onSwipe (direction, callback) {
